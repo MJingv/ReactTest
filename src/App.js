@@ -1,28 +1,61 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {render} from 'react-dom'
+import {createStore} from 'redux'
+import {Provider} from 'react-redux'
+import Dog from './dog';
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: '3'
+      myChoice: true,
+      val: 'jehol',
+      value: '3',
+      father: '',
+      num: [3, 2],
+      count:0,
     }
   }
   handleChange(e) {
     this.setState({value: e.target.value});
 
   }
+  change(e) {
+    this.setState({father: e.target.value})
+  }
 
+  changeBro() {
+    this.setState({father: "i am brother"})
+  }
+
+  changeMe(n) {
+
+    console.log(n.a + '我的宝贝');
+    this.setState({val: 'hhhhhh'})
+
+  }
+
+  addBtn = () =>{
+    this.setState((prevState) =>({
+      count:prevState.count+1
+    }
+
+    ))
+
+  }
   render() {
     const num = [1, 2, 3, 4];
-
+    const yes = <strong>i am yes</strong>;
+    const no = <strong>i am no</strong>;
     return (
       <div className="App game">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo"/>
           <h2>Welcome jehol to React</h2>
         </div>
+        <Child myVal={this.state.val} change={this.changeMe.bind(this)}></Child>
         <select onChange={this.handleChange.bind(this)}>
           <option value="1">1</option>
           <option value="2">2</option>
@@ -38,10 +71,79 @@ export default class App extends React.Component {
           ))
 }
         </ul>
-        <Clock></Clock>
-        <Calculator></Calculator>
+        <h1>
+          {this.state.myChoice
+            ? yes
+            : no
+}
+        </h1>
+        <button onClick = {this.addBtn}>add 1</button>
+      {`now the count is ${this.state.count}`}
+
+      <br/>
+    <br/>
+      <Dog / >
+
       </div>
     );
+  }
+}
+
+class Child extends React.Component {
+  constructor(props) {
+    super(props)
+
+  }
+
+  handleClick = () => this.props.change({a: 1})
+
+  render() {
+    return (
+      <div>
+        <p>i am child</p>
+        <h1>{this.props.myVal}</h1>
+        <button onClick={this.handleClick}>click me to change father</button>
+
+      </div>
+    )
+  }
+
+}
+
+class Test extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      userName: "1"
+    }
+
+  }
+
+  render() {
+    const no = ["jehol", "a", "bbb"]
+    return (
+      <div>
+        <input placeholder="input sth " onChange={this.props.value}></input>
+        <ul>
+          {this.props.myNum.map((item, index) => {
+
+            return <li key={index}>{item}</li>
+          })}
+        </ul>
+      </div>
+    )
+  }
+}
+
+class Brother extends React.Component {
+  constructor(props) {
+    super(props)
+
+  }
+  render() {
+    return (
+      <button onClick={this.props.brother}>我要改变兄弟test的值</button>
+    )
   }
 }
 
@@ -62,7 +164,7 @@ class Clock extends React.Component {
     clearInterval(this.timerID);
 
   }
-  component
+
   render() {
     return (
       <div>
