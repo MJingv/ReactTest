@@ -5,6 +5,9 @@ import {render} from 'react-dom'
 import {createStore} from 'redux'
 import {Provider} from 'react-redux'
 import Dog from './dog';
+import Computer from './computer';
+
+
 
 export default class App extends React.Component {
   constructor(props) {
@@ -83,7 +86,9 @@ export default class App extends React.Component {
       <br/>
     <br/>
       <Dog / >
-
+      <br/>
+    <br/>
+  <Computer/ >
       </div>
     );
   }

@@ -1,63 +1,56 @@
 import React, {Component} from 'react';
 
 export default class Dog extends React.Component {
-  constructor(){
+  constructor() {
     super();
     this.state = {
-      isBarking:false,
-      isRunning:false,
-      now:''
+      isBarking: false,
+      isRunning: false,
+      now: ''
 
     }
   }
 
-  handleClick = () =>(
-    this.bark(),
-    this.run()
-  )
+  handleClick = () => (this.bark(), this.run())
 
-  bark = () =>{
-    this.setState((prevState)=>({
-      now:prevState.now+'barking --',
-      isBarking:true
-    }
-    ))
-    setTimeout(() =>
+  bark = () => {
     this.setState((prevState) => ({
-      isBarking:false,
-      now:prevState.now +'stop barking--',
-
+      now: prevState.now + 'barking --',
+      isBarking: true
     }))
-    ,500)
+    setTimeout(() => this.setState((prevState) => ({
+      isBarking: false,
+      now: prevState.now + 'stop barking--'
+    })), 500)
 
   }
 
-  run = () =>{
+  run = () => {
 
-    this.setState((prevState)=>({
-      now:prevState.now+'running --',
-      isRunning:true
-    }
-    ))
-    setTimeout(() =>{
-      this.setState( (prevState) => ({
-        isRunning:false,
-        now:prevState.now +'stop running--'
-      }) )
-    },500)
+    this.setState((prevState) => ({
+      now: prevState.now + 'running --',
+      isRunning: true
+    }))
+    setTimeout(() => {
+      this.setState((prevState) => ({
+        isRunning: false,
+        now: prevState.now + 'stop running--'
+      }))
+    }, 500)
 
   }
-  render(){
-    return(
+  render() {
+    return (
       <div>
 
-<h1 style = {{color:"blue"}} onClick = {this.handleClick}>i am a dog</h1>
+        <h1 style={{
+          color: "blue"
+        }} onClick={this.handleClick}>i am a dog</h1>
 
-{this.state.now}
+        {this.state.now}
+    
 
       </div>
-
-
 
     )
   }
