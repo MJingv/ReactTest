@@ -6,7 +6,7 @@ import {createStore} from 'redux'
 import {Provider} from 'react-redux'
 import Dog from './dog';
 import Computer from './computer';
-
+import Lesson from './lesson';
 
 
 export default class App extends React.Component {
@@ -89,7 +89,12 @@ export default class App extends React.Component {
       <br/>
     <br/>
   <Computer/ >
+
+    <Lesson></Lesson>
+
+  
       </div>
+
     );
   }
 }
