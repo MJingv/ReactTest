@@ -1,0 +1,66 @@
+*{
+padding:0px;
+  margin:0px;
+  list-style-type:none;
+
+}
+html,body,#root,.leftNav,.App-game{
+  height: 100%
+}
+.navTopic{
+  background-color: red;
+  font-size: 20px;
+  cursor: pointer;
+  padding:10px 0px;
+}
+
+.navTopic:before{
+  content:'';
+  position: relative;
+  left:180px;
+  top:15px;
+  width: 0px;
+  height: 0px;
+  border-top:5px solid green;
+  border-left:5px solid transparent;
+  border-right:5px solid transparent;
+  border-bottom:5px solid transparent;
+}
+
+.navTopic.active{
+  background-color: yellow;
+
+}
+.navTopic.active:before{
+  content:'';
+  position: relative;
+  display: block;/*没有就无法旋转*/
+  left:180px;
+  top:15px;
+  width: 0px;
+  height: 0px;
+  border-top:5px solid red;
+  border-left:5px solid transparent;
+  border-right:5px solid transparent;
+  border-bottom:5px solid transparent;
+  transform: rotate(180deg);
+  transition: transform .4s  ease;
+}
+
+ul{
+  display: none;
+
+}
+
+ul.show{
+  display: block;
+}
+li{
+  padding:5px 0px;
+  cursor: pointer;
+}
+li.active{
+  background-color: black;
+  color: white;
+
+}

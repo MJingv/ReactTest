@@ -7,6 +7,9 @@ import {Provider} from 'react-redux'
 import Dog from './dog';
 import Computer from './computer';
 import Lesson from './lesson';
+import CommentApp from './comment/CommentApp'
+import Nav from './nav'
+
 
 
 export default class App extends React.Component {
@@ -17,8 +20,10 @@ export default class App extends React.Component {
       val: 'jehol',
       value: '3',
       father: '',
-      num: [3, 2],
-      count:0,
+      num: [
+        3, 2
+      ],
+      count: 0
     }
   }
   handleChange(e) {
@@ -40,12 +45,10 @@ export default class App extends React.Component {
 
   }
 
-  addBtn = () =>{
-    this.setState((prevState) =>({
-      count:prevState.count+1
-    }
-
-    ))
+  addBtn = () => {
+    this.setState((prevState) => ({
+      count: prevState.count + 1
+    }))
 
   }
   render() {
@@ -53,13 +56,20 @@ export default class App extends React.Component {
     const yes = <strong>i am yes</strong>;
     const no = <strong>i am no</strong>;
     return (
-      <div className="App game">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo"/>
-          <h2>Welcome jehol to React</h2>
+
+      <div className="App-game">
+        <div className = "leftNav">
+          <Nav></Nav>
         </div>
-        <Child myVal={this.state.val} change={this.changeMe.bind(this)}></Child>
-        <select onChange={this.handleChange.bind(this)}>
+        <div className = "content">
+          i am content
+            {/* <CommentApp ></CommentApp> */}
+        </div>
+
+
+
+        {/* <Child myVal={this.state.val} change={this.changeMe.bind(this)}></Child> */}
+        {/* <select onChange={this.handleChange.bind(this)}>
           <option value="1">1</option>
           <option value="2">2</option>
           <option selected value="3">3</option>
@@ -72,49 +82,45 @@ export default class App extends React.Component {
               {`${item * this.state.value}`}
             </li>
           ))
-}
+        }
         </ul>
         <h1>
           {this.state.myChoice
             ? yes
             : no
-}
+          }
         </h1>
-        <button onClick = {this.addBtn}>add 1</button>
-      {`now the count is ${this.state.count}`}
+        <button onClick={this.addBtn}>add 1</button>
+        {`now the count is ${this.state.count}`} */}
 
-      <br/>
-    <br/>
-      <Dog / >
-      <br/>
-    <br/>
-  <Computer/ >
 
-    <Lesson></Lesson>
+  {/* <Dog/>
 
-  
-      </div>
+        <Computer/ >
 
-    );
-  }
+        <Lesson></Lesson> */
 }
 
-class Child extends React.Component {
-  constructor(props) {
-    super(props)
+        </div>
 
-  }
+        ); } }
 
-  handleClick = () => this.props.change({a: 1})
+        class Child extends React.Component {constructor(props) {
+          super(props)
 
-  render() {
-    return (
-      <div>
-        <p>i am child</p>
-        <h1>{this.props.myVal}</h1>
-        <button onClick={this.handleClick}>click me to change father</button>
+        }
 
-      </div>
+        handleClick = () => this.props.change({a: 1})
+
+        render() {
+          return (
+            <div>
+              <p>i am child</p>
+              <h1>{this.props.myVal}</h1>
+              <button onClick={this.handleClick}>
+                click me to change father</button>
+
+          </div>
     )
   }
 

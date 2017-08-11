@@ -48,7 +48,7 @@ export default class Dog extends React.Component {
         }} onClick={this.handleClick}>i am a dog</h1>
 
         {this.state.now}
-    
+
 
       </div>
 
