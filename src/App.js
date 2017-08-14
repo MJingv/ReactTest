@@ -62,8 +62,7 @@ export default class App extends React.Component {
           <Nav></Nav>
         </div>
         <div className = "content">
-          i am content
-            {/* <CommentApp ></CommentApp> */}
+             <CommentApp ></CommentApp>
         </div>
 
 

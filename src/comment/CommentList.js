@@ -2,10 +2,14 @@ import React, { Component } from 'react';
 
 
 export default class CommentList extends React.Component {
+  constructor(props){
+    super(props)
+
+  }
   render() {
     return(
       <div>
-        CommentList
+        {this.props.userVal} : {this.props.contentVal}
       </div>
     )
 
