@@ -11,6 +11,8 @@ import CommentApp from './comment/CommentApp'
 import Nav from './nav'
 import Calculator from './calculator'
 
+
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -84,6 +86,7 @@ export default class App extends React.Component {
         </div>
         <div className="content">
           <CommentApp ></CommentApp>
+
         </div>
 
         {/* <Child myVal={this.state.val} change={this.changeMe.bind(this)}></Child> */}

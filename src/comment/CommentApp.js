@@ -10,9 +10,6 @@ export default class CommentApp extends React.Component {
   componentWillMount() {
     this._loadComments();
   }
-  componentWillUnmount() {
-    clearInterval(this._timer)
-  }
 
 
   _loadComments = () => {
