@@ -11,6 +11,7 @@ import CommentApp from './comment/CommentApp'
 import Nav from './nav'
 import Calculator from './calculator'
 
+import Index from './myRedux/index'
 
 
 export default class App extends React.Component {
@@ -86,6 +87,8 @@ export default class App extends React.Component {
         </div>
         <div className="content">
           <CommentApp ></CommentApp>
+        <Index></Index>
+
 
         </div>
 

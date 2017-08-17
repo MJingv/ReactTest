@@ -1,6 +1,6 @@
 import React, {Component,PropTypes} from 'react';
 import Header from './Header';
-import {Provider} from './react-redux';
+
 
 import Content from './Content'
 import ReactDOM from 'react-dom'
