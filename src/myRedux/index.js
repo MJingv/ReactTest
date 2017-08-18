@@ -3,54 +3,61 @@ import ReactDom from 'react-dom';
 import reducer from './reducer';
 import {createStore} from 'redux';
 
+//action -- must have a "type"
+const store = createStore(reducer);
+
+store.subscribe(() => {
+  console.log(store.getState());
+
+});
+
 export default class Index extends React.Component {
-inc = () => (
-  {type:'ADD'}
-)
+  state = {
+    myShow: -1
+  }
+  inc = () => ({type: 'ADD'})
 
-dec = () => (
-  {type:'SUB'}
-)
+  dec = () => ({type: 'SUB'})
 
-mul = () =>(
-  {type:'MUL'}
-)
+  mul = () => ({type: 'MUL'})
 
-div = () =>(
-  {type:'DIV'}
-)
+  div = () => ({type: 'DIV'})
 
+  componentDidMount() {
+    console.log('init ' + store.getState());
 
-componentDidMount() {
-  //初始化传递的是reducer
-  var store = createStore(reducer);
+  }
 
-  console.log(store.getState());
-
-  store.dispatch(this.inc());
-  console.log(store.getState());
-
-  store.dispatch(this.dec());
-  console.log(store.getState());
-
-  store.dispatch(this.inc());
-  console.log(store.getState());
-
-  store.dispatch(this.mul());
-  console.log(store.getState());
-
-  store.dispatch(this.mul());
-  console.log(store.getState());
-
-  store.dispatch(this.div());
-  console.log(store.getState());
-
-}
+  componentWillMount() {
+    store.subscribe(() => {
+      console.log('will'+store.getState());
+      this.setState({
+        myShow:store.getState().counter
+      })
+    });
+  }
+  addClick = () => {
+    store.dispatch(this.inc())
+  }
+  subClick = () => {
+    store.dispatch(this.dec())
+  }
+  mulClick = () => {
+    store.dispatch(this.mul())
+  }
+  divClick = () => {
+    store.dispatch(this.div())
+  }
 
   render() {
     return (
       <div >
- i am myredux
+        i am myredux -- check the cosole
+        <button onClick={this.addClick}>+</button>
+        <button onClick={this.subClick}>-</button>
+        <button onClick={this.mulClick}>*</button>
+        <button onClick={this.divClick}>/</button>
+      <h1>结果是这样的{this.state.myShow}</h1>
       </div>
     )
 
