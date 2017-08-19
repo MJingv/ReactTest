@@ -1,0 +1,19 @@
+<html>
+<div>
+test
+<script>
+
+
+for(let i=0;i<10;i++){
+let  a = document.createElement('a')
+  a.innerHTML = 'i am the '+i+'<br />'
+  a.addEventListener('click',function(e){
+    e.preventDefault()
+    console.log(i);
+    //a.remove(a.childNode)
+  })
+  document.body.appendChild(a)
+}
+</script>
+</div>
+</html>
