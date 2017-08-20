@@ -1,13 +1,15 @@
-import Todo from './Todo';
+import React, {Component, PropTypes} from 'react'
+import Todo from './Todo'
 
-const TodoList =({todos,onTodoClick}) => {
-  <ul>
-    {todos.map(todo => {
-      <Todo key ={todo.id}
-        {...todo}
-        onClick = {()=>onTodoClick(todo.id)}></Todo>
+export default class TodoList extends Component {
+  render() {
+    return (
+      <ul>
+        {this.props.todos.map((todo, index) => <Todo {...todo} key ={index} onClick= {()=>this.props.onTodoClick(index)}/>)}
+      </ul>
 
-    })}
-  </ul>
-
+    )
+  }
 }
+
+TodoList.propTypes = {}

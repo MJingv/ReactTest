@@ -3,9 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+//ReactDOM.render(<App />, document.getElementById('root'));
+import {createStore} from 'redux'
+import {Provider} from 'react-redux'
+import TodoList from './todoList/container/App'
+import todoApp from './todoList/reducer.js'
 
+let store = createStore(todoApp)
 
-for(var i= 0 ;i<10;i++){
-  a = document.getElementById('link')
-}
+let rootElement = document.getElementById('root')
+
+ReactDOM.render(
+  <Provider store = {store}>
+    <TodoList />
+</Provider>,
+rootElement
+)
