@@ -12,7 +12,6 @@ class App extends Component {
       <div>
         <AddTodo onAddClick= {text => dispatch(addTodo(text))}></AddTodo>
         <TodoList todos={visibleTodos} onTodoClick= {index => dispatch(completeTodo(index))}></TodoList>
-
         <Footer filter={visibilityFilter} onFilterChange= { nextFilter => dispatch(setVisibilityFilter(nextFilter)) }></Footer>
       </div>
 
@@ -31,10 +30,10 @@ function selectTodos(todos, filter) {
   }
 }
 
-function select (state){
+function select(state) {
   return {
-    visibleTodos:selectTodos(state.todos,state.visibilityFilter),
-    visibilityFilter:state.visibilityFilter
+    visibleTodos: selectTodos(state.todos, state.visibilityFilter),
+    visibilityFilter: state.visibilityFilter
   }
 }
 

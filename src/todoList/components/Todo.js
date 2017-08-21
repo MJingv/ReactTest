@@ -11,8 +11,7 @@ export default class Todo extends Component {
           ? 'default'
           : 'pointer'
       }}>
-<h1>aaa{this.props.text}</h1>
-
+        <h1>{this.props.text}</h1>
       </li>
 
     )
