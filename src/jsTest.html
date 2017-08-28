@@ -1,19 +1,55 @@
 <html>
-<div>
-test
+ <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+<div id ="bigDiv">
+  <div id="div1">
+    <p id="p1">
+      激活
+    </p>
+    <p id="p2">
+      取消
+    </p>
+    <a href="#" id="link1">lin1</a>
+    <a href="#" id="link2">lin2</a>
+    <a href="#" id="link3">lin3</a>
+    <a href="#" id="link4">lin4</a>
+
+  </div>
+
+  <div id="div1">
+    <p id="p3">
+    取消
+    </p>
+    <p id="p4">
+      取消
+    </p>
+
+  </div>
+</div>
 <script>
 
+var mydiv = document.getElementById('bigDiv');
+  mydiv.addEventListener('click',(e)=>{
 
-for(let i=0;i<10;i++){
-let  a = document.createElement('a')
-  a.innerHTML = 'i am the '+i+'<br />'
-  a.addEventListener('click',function(e){
-    e.preventDefault()
-    console.log(i);
-    //a.remove(a.childNode)
+console.log(e.target.nodeName);
+console.log(e.currentTarget.nodeName+'current');
   })
-  document.body.appendChild(a)
-}
+</script>
+
+<script>
+  for (let i = 0; i < 10; i++) {
+    let a = document.createElement('a')
+    a.innerHTML = 'i am the ' + i + '<br />';
+    a.className = 'a-' + i;
+
+    a.addEventListener('click', function(e) {
+      e.preventDefault()
+      console.log(i);
+      //a.remove(a.childNode)
+    })
+    document.body.appendChild(a)
+  }
 </script>
 </div>
+
 </html>

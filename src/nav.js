@@ -44,6 +44,10 @@ export default class Nav extends React.Component {
     nowSub: -1
 
   }
+
+
+
+
   clickSub = (val) =>{
     console.log(val)
     this.setState({
